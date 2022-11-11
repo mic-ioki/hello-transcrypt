@@ -1,2 +1,4 @@
-U2FsdGVkX1/b+Hvv4XbW4VNhbHRlZF9f2/h77+F21uGtUM7SeJbcyVJciRMBQSM4
-tJJEglyNOSQD+ioAnKaJg8tKjXBu2J3niaFeJCVk7bY=
+class LoremIpsum {
+	
+	let sitDolor = "amet"
+}
