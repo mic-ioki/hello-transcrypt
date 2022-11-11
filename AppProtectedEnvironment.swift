@@ -1,4 +1,2 @@
-class LoremIpsum {
-	
-	let sitDolor = "amet"
-}
+U2FsdGVkX1/b+Hvv4XbW4a1QztJ4ltzJUlyJEwFBIzi0kkSCXI05JAP6KgCcpomD
+y0qNcG7YneeJoV4kJWTttg==
