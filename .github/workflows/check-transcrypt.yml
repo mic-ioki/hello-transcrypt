@@ -6,8 +6,6 @@ on:
     branches:
       - '*'
 jobs:
-  setup-transcrypt:
-    uses: ./.github/workflows/setup-transcrypt.yml
   CheckTranscrypt:
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +13,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: main
+      - name: Checkout Transcrypt
+        uses: actions/checkout@v3
+        with:
+          repository: elasticdog/transcrypt
+          path: transcrypt
+      - name: Install Transcrypt
+        run: |
+          cd ./transcrypt
+          ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
       - name: Decrypt
         run: |
           cd ./main
