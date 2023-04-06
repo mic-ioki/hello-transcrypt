@@ -9,17 +9,22 @@ jobs:
   CheckTranscrypt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 2 # The Publish API docs step compares against one commit earlier
-      - name: install transcrypt
-        working-directory: tools
+          path: main
+      - name: Checkout Transcrypt
+        uses: actions/checkout@v3
+        with:
+          repository: elasticdog/transcrypt
+          path: transcrypt
+      - name: Install Transcrypt
         run: |
-          git clone https://github.com/elasticdog/transcrypt.git
-          cd transcrypt/
+          cd ./transcrypt
           ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
       - name: Decrypt
         run: |
+          cd ./main
           ls -l
           transcrypt -y -p $TRANSCRYPT_PASSPHRASE
         env:
