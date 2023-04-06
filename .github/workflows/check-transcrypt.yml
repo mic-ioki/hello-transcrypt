@@ -9,20 +9,24 @@ jobs:
   CheckTranscrypt:
     runs-on: ubuntu-latest
     steps:
+      - name: install transcrypt
+        working-directory: ./tools
+        run: |
+          git clone https://github.com/elasticdog/transcrypt.git
+          cd transcrypt/
+          ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2 # The Publish API docs step compares against one commit earlier
-      - name: install transcrypt
-        run: |
-        cd $RUNNER_TEMP
-        git clone https://github.com/elasticdog/transcrypt.git
-        cd transcrypt/
-        ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
-        cd $GITHUB_PATH
       - name: Decrypt
-        run: transcrypt -y -p $TRANSCRYPT_PASSPHRASE
+        run: |
+          ls -l
+          transcrypt -y -p $TRANSCRYPT_PASSPHRASE
         env:
           TRANSCRYPT_PASSPHRASE: ${{ secrets.TRANSCRYPT_PASSPHRASE }}
       - name: Show encrypted file
-      - run: tail key.json
+        run: tail key.json
+      
+
+
       
