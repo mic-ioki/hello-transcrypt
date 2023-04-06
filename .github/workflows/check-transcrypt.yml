@@ -30,7 +30,10 @@ jobs:
         env:
           TRANSCRYPT_PASSPHRASE: ${{ secrets.TRANSCRYPT_PASSPHRASE }}
       - name: Show encrypted file
-        run: tail "$ASC_API_KEYS_PATH/key.json"
+        run: |
+          echo $PWD
+          ls -l
+          tail "$ASC_API_KEYS_PATH/key.json"
         env:
           ASC_API_KEYS_PATH: '${{ github.workspace }}/main/keys'
       
