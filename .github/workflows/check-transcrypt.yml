@@ -37,7 +37,7 @@ jobs:
           ls -l
           tail "$ASC_API_KEYS_PATH/key.json"
         env:
-          ASC_API_KEYS_PATH: '${{ github.workspace }}/main/keys'
+          ASC_API_KEYS_PATH: 'main/keys'
       
 
 
