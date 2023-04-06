@@ -1,1 +1,2 @@
 AppProtectedEnvironment.swift  filter=crypt diff=crypt merge=crypt
+key.json filter=crypt diff=crypt merge=crypt
