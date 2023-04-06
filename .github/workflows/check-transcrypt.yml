@@ -9,15 +9,15 @@ jobs:
   CheckTranscrypt:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # The Publish API docs step compares against one commit earlier
       - name: install transcrypt
         working-directory: ./tools
         run: |
           git clone https://github.com/elasticdog/transcrypt.git
           cd transcrypt/
           ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2 # The Publish API docs step compares against one commit earlier
       - name: Decrypt
         run: |
           ls -l
