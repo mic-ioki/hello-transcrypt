@@ -32,7 +32,7 @@ jobs:
       - name: Show encrypted file
         run: tail "$ASC_API_KEYS_PATH/key.json"
         env:
-          ASC_API_KEYS_PATH: '${{ github.wokspace }}/main/keys'
+          ASC_API_KEYS_PATH: '${{ github.workspace }}/main/keys'
       
 
 
