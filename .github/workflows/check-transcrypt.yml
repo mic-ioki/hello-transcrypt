@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 2 # The Publish API docs step compares against one commit earlier
       - name: install transcrypt
-        working-directory: ./tools
+        working-directory: tools
         run: |
           git clone https://github.com/elasticdog/transcrypt.git
           cd transcrypt/
