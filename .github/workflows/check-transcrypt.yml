@@ -33,6 +33,8 @@ jobs:
         run: |
           echo $PWD
           ls -l
+          cd $ASC_API_KEYS_PATH
+          ls -l
           tail "$ASC_API_KEYS_PATH/key.json"
         env:
           ASC_API_KEYS_PATH: '${{ github.workspace }}/main/keys'
